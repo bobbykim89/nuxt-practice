@@ -49,13 +49,18 @@ export default {
   name: 'single-movie',
   data() {
     return {
-      movie: null,
+      movie: '',
     }
   },
   async fetch() {
     await this.getSingleMovie()
   },
   fetchDelay: 1000,
+  head() {
+    return {
+      title: this.movie.title,
+    }
+  },
   methods: {
     async getSingleMovie() {
       const apiKey = process.env.API_KEY
